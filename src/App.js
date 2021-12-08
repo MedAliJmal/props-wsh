@@ -1,23 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Bio from "./profile/components/bio/Bio";
+import FullName from "./profile/components/fullname/FullName";
+import Profession from "./profile/components/profession/Profession";
+import Image from "./profile/components/image/Image";
 
 function App() {
+  const Bassem = {
+    fullName: "Bassem Srarfi",
+    bio: "Bassem Srarfi was born on June 25, 1997 (age 24) in Tunis, Tunisia. He is a celebrity soccer player. Tunisian professional footballer best known for his career as a midfielder with Nice in France. He is also known for his work as a midfielder on the Tunisia national team as well.",
+    prof: "Professional Footballer",
+  };
+  const handleName = (Bassem) => {
+    alert(`Hi , My name is ${Bassem}`);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <FullName name={Bassem} />
+      <Image defau={"This photo is taken at the age of 24yo."}>
+        <h1
+          style={{
+            fontFamily: "Arial",
+            backgroundColor: "Black",
+            borderRadius: "15px",
+            color: "white",
+            width: "250px",
+            margin: "0 auto",
+            padding: "25px"
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          {" "}
+          B.Srarfi Photo
+        </h1>
+        <img
+          style={{ height: "528px" }}
+          src="https://www.proleague.be/dato/25478/1627827455-srarfi-2.png?auto=format&crop=faces&fit=crop&h=640&w=640"
+          alt=""
+        />
+        <h2>
+          <button
+            style={{
+              backgroundColor: "green",
+              width: "100px",
+              height: "50px",
+              fontFamily: "Arial",
+              color: "white",
+              borderRadius: "30px",
+            }}
+            onClick={() => handleName(Bassem.fullName)}
+          >
+            Salute{" "}
+          </button>
+        </h2>
+      </Image>
+      <Profession pro={Bassem} />
+      <Bio Biog={Bassem} />
     </div>
   );
 }
